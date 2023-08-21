@@ -1,0 +1,53 @@
+{
+  "name": "lkt-i18n",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "private": true,
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./dist/lkt-i18n.es.js",
+      "require": "./dist/lkt-i18n.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "serve": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly --project tsconfig.json && mv dist/src dist/types && rm dist/vite.config.d.ts && rm dist/README.md.d.ts ",
+    "build2": "vite build",
+    "build3": "rm -rf public/dist/ && vite build && mv dist/ public/dist",
+    "preview": "vite preview",
+    "test": "jest",
+    "test-coverage": "vitest run --coverage"
+  },
+  "author": "Antonio Ibáñez",
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "@vitejs/plugin-vue": "^4.3.2",
+    "cross-env": "^7.0.3",
+    "echarts": "^5.3.3",
+    "jest": "^29.0.3",
+    "path": "^0.12.7",
+    "prettier": "^2.7.1",
+    "ts-jest": "^29.0.0",
+    "vite": "^4.4.9",
+    "vue": "^3.2.37",
+    "vue-loader": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "lkt-object-tools": "^1.0.0",
+    "lkt-string-tools": "^1.0.0",
+    "lkt-ts-interfaces": "^1.0.2",
+    "process": "^0.11.10"
+  }
+}
