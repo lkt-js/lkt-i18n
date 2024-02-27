@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist",
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "module": "es6",
-    "target": "es6",
+    "strictFunctionTypes": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": false,
+    "noUnusedLocals": false,
+    "module": "ES2020",
+    "target": "ES2020",
     "jsx": "preserve",
     "allowJs": true,
-    "composite": false,
     "declaration": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
 }

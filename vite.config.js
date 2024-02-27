@@ -2,7 +2,7 @@ import vue from '@vitejs/plugin-vue';
 import {resolve} from 'path';
 
 const src = resolve(__dirname, 'src');
-const outDir = resolve(__dirname, 'dist');
+const outDir = resolve(__dirname, 'build');
 const test = resolve(__dirname, 'test');
 const snapshots = resolve(__dirname, 'snapshots');
 
@@ -19,8 +19,7 @@ export default {
         lib: {
             entry: `${src}/index.ts`,
             name: 'LktI18n',
-            fileName: (format) => `lkt-i18n.${format}.js`,
-            formats: ['iife', 'es', 'umd']
+            formats: ['es']
         },
         outDir,
         minify: true,
