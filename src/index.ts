@@ -1,10 +1,9 @@
 import {fill} from "lkt-string-tools";
 import {LktObject} from "lkt-ts-interfaces";
 import {Settings} from "./Settings/Settings";
+import {reactive, UnwrapNestedRefs} from "vue";
 
-const I18n = {
-    value: {}
-}
+export const i18n:UnwrapNestedRefs<LktObject> = reactive({})
 
 export const __ = (key = '', replacements = {}) => {
 
@@ -13,7 +12,7 @@ export const __ = (key = '', replacements = {}) => {
     const args = key.split('.');
     const argsLength = args.length;
     let c = 0;
-    let t: any = I18n.value;
+    let t: any = i18n;
 
     // Parse config data and fetch attribute
     while (typeof t[args[c]] !== 'undefined') {
@@ -34,8 +33,9 @@ export const __ = (key = '', replacements = {}) => {
     return t;
 }
 
-export const setI18n = (i18n: LktObject = {}) => {
-    I18n.value = i18n;
+export const setI18n = (data: LktObject = {}) => {
+    for (let k in i18n) delete i18n[k];
+    for (let k in data) i18n[k] = data[k];
 }
 
 export const setI18nNotFoundReturnModeToEmpty = () => {

@@ -1,15 +1,14 @@
 import { fill } from "lkt-string-tools";
 import { Settings } from "./Settings/Settings";
-const I18n = {
-    value: {}
-};
+import { reactive } from "vue";
+export const i18n = reactive({});
 export const __ = (key = '', replacements = {}) => {
     if (Settings.value.debugEnabled)
         return key;
     const args = key.split('.');
     const argsLength = args.length;
     let c = 0;
-    let t = I18n.value;
+    let t = i18n;
     // Parse config data and fetch attribute
     while (typeof t[args[c]] !== 'undefined') {
         t = t[args[c]];
@@ -26,8 +25,11 @@ export const __ = (key = '', replacements = {}) => {
         return fill(t, replacements, ':', '');
     return t;
 };
-export const setI18n = (i18n = {}) => {
-    I18n.value = i18n;
+export const setI18n = (data = {}) => {
+    for (let k in i18n)
+        delete i18n[k];
+    for (let k in data)
+        i18n[k] = data[k];
 };
 export const setI18nNotFoundReturnModeToEmpty = () => {
     Settings.value.notFoundReturnMode = Settings.NOT_FOUND_RETURN_EMPTY;
