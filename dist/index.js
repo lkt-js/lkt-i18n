@@ -1,7 +1,9 @@
 import { fill } from "lkt-string-tools";
 import { Settings } from "./Settings/Settings";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 export const i18n = reactive({});
+export const currentLanguage = ref('en');
+export const availableLanguages = ref(['en']);
 export const __ = (key = '', replacements = {}) => {
     if (Settings.value.debugEnabled)
         return key;
@@ -39,4 +41,16 @@ export const setI18nNotFoundReturnModeToKey = () => {
 };
 export const setI18nDebugMode = (status = true) => {
     Settings.value.debugEnabled = status;
+};
+export const setCurrentLanguage = (lang) => {
+    currentLanguage.value = lang;
+};
+export const setAvailableLanguages = (languages) => {
+    availableLanguages.value = languages;
+};
+export const getAvailableLanguages = () => {
+    return availableLanguages.value;
+};
+export const getCurrentLanguage = () => {
+    return currentLanguage.value;
 };

@@ -1,10 +1,10 @@
-export const Settings = {
+import {LktObject} from "lkt-ts-interfaces";
 
-    NOT_FOUND_RETURN_EMPTY: 1,
-    NOT_FOUND_RETURN_KEY: 2,
-
-    value: {
+export class Settings {
+    static NOT_FOUND_RETURN_EMPTY: number = 1;
+    static NOT_FOUND_RETURN_KEY: number = 2;
+    static value: LktObject = {
         notFoundReturnMode: 2,
         debugEnabled: false
     }
-};
+}

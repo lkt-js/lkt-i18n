@@ -1,9 +1,11 @@
 import {fill} from "lkt-string-tools";
 import {LktObject} from "lkt-ts-interfaces";
 import {Settings} from "./Settings/Settings";
-import {reactive, UnwrapNestedRefs} from "vue";
+import {reactive, ref, UnwrapNestedRefs} from "vue";
 
 export const i18n:UnwrapNestedRefs<LktObject> = reactive({})
+export const currentLanguage = ref('en');
+export const availableLanguages = ref(['en']);
 
 export const __ = (key = '', replacements = {}) => {
 
@@ -48,4 +50,20 @@ export const setI18nNotFoundReturnModeToKey = () => {
 
 export const setI18nDebugMode = (status: boolean = true) => {
     Settings.value.debugEnabled = status;
+}
+
+export const setCurrentLanguage = (lang: string) => {
+    currentLanguage.value = lang;
+}
+
+export const setAvailableLanguages = (languages: string[]) => {
+    availableLanguages.value = languages
+}
+
+export const getAvailableLanguages = () => {
+    return availableLanguages.value;
+}
+
+export const getCurrentLanguage = () => {
+    return currentLanguage.value;
 }
