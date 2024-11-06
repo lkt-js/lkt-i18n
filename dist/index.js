@@ -1,6 +1,6 @@
 import { fill } from "lkt-string-tools";
 import { Settings } from "./Settings/Settings";
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 export const i18n = reactive({});
 export const currentLanguage = ref('en');
 export const availableLanguages = ref(['en']);
@@ -54,3 +54,6 @@ export const getAvailableLanguages = () => {
 export const getCurrentLanguage = () => {
     return currentLanguage.value;
 };
+export const computedCurrentLanguage = computed(() => {
+    return currentLanguage.value;
+});

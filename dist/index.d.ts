@@ -1,8 +1,8 @@
 import { LktObject } from "lkt-ts-interfaces";
 import { UnwrapNestedRefs } from "vue";
 export declare const i18n: UnwrapNestedRefs<LktObject>;
-export declare const currentLanguage: import("vue").Ref<string>;
-export declare const availableLanguages: import("vue").Ref<string[]>;
+export declare const currentLanguage: import("vue").Ref<string, string>;
+export declare const availableLanguages: import("vue").Ref<string[], string[]>;
 export declare const __: (key?: string, replacements?: {}) => any;
 export declare const setI18n: (data?: LktObject) => void;
 export declare const setI18nNotFoundReturnModeToEmpty: () => void;
@@ -12,3 +12,4 @@ export declare const setCurrentLanguage: (lang: string) => void;
 export declare const setAvailableLanguages: (languages: string[]) => void;
 export declare const getAvailableLanguages: () => string[];
 export declare const getCurrentLanguage: () => string;
+export declare const computedCurrentLanguage: import("vue").ComputedRef<string>;

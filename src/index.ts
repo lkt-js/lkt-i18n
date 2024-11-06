@@ -1,7 +1,7 @@
 import {fill} from "lkt-string-tools";
 import {LktObject} from "lkt-ts-interfaces";
 import {Settings} from "./Settings/Settings";
-import {reactive, ref, UnwrapNestedRefs} from "vue";
+import {computed, reactive, ref, UnwrapNestedRefs} from "vue";
 
 export const i18n:UnwrapNestedRefs<LktObject> = reactive({})
 export const currentLanguage = ref('en');
@@ -67,3 +67,7 @@ export const getAvailableLanguages = () => {
 export const getCurrentLanguage = () => {
     return currentLanguage.value;
 }
+
+export const computedCurrentLanguage = computed(() => {
+    return currentLanguage.value;
+})
